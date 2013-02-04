@@ -198,13 +198,19 @@ declare %restxq:path("blog-complete/drop-database")
  : @param $redirect  page to forward to
  : @RETURN           redirect header
  :)
-declare function page:redirect($redirect as xs:string) as element(restxq:response)
+declare function page:redirect($redirect as xs:string) as element(restxq:redirect)
 {
-  <restxq:response>
-    <http:response status="307">
-      <http:header name="location" value="{ $redirect }"/>
-    </http:response>
-  </restxq:response>
+  <restxq:redirect>{ $redirect }</restxq:redirect>
+  
+  (:~
+   : Internally translates to:
+   :
+   : <restxq:response>
+   :   <http:response status="302" message="Temporary Redirect">
+   :     <http:header name="location" value="{ $redirect }"/>
+   :   </http:response>
+   : </restxq:response>
+   :)
 };
 
 (:~
