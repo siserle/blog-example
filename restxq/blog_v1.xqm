@@ -61,7 +61,7 @@ declare %output:method("xhtml")
       <div class="right"><img src="/basex.svg" width="96"/></div>
       <h2>{ $title }</h2>
 
-      <p>You have to <a href="blog-v1/create-database">create the blog database</a> first.</p>
+      <p>You have to <a href="/restxq/blog-v1/create-database">create the blog database</a> first.</p>
     </body>
   </html>
 };
@@ -116,9 +116,10 @@ declare %output:method("xhtml")
       <div class="right"><img src="/basex.svg" width="96"/></div>
       <h2>{ $title }</h2>
 
-      <p>Have a look at the <a href="blog-v1/show-blog-xml">xml source</a> of the blog.</p><br />
+      <p>Have a look at the <a href="/restxq/blog-v1/show-blog-xml">xml source</a> of the blog.</p><br />
 
-      <p><a href="blog-v1/drop-database">Drop blog database</a></p>
+      <!-- pathes relative to root -->
+      <p><a href="/restxq/blog-v1/drop-database">Drop blog database</a></p>
     </body>
   </html>
 };

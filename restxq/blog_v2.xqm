@@ -67,7 +67,7 @@ declare %output:method("xhtml")
       <div class="right"><img src="/basex.svg" width="96"/></div>
       <h2>{ $title }</h2>
 
-      <p>You have to <a href="blog-v2/create-database">create the blog database</a> first.</p>
+      <p>You have to <a href="/restxq/blog-v2/create-database">create the blog database</a> first.</p>
     </body>
   </html>
 };
@@ -105,8 +105,8 @@ declare %output:method("xhtml")
                                 fn:substring(string($posting/@postingdate), 12, 5) || " " || $author } posted: </small><br />
                                <b>{ $posting/postingtitle/text() }</b><br />
                                { $posting/postingtext/text() }<br />
-                               <a href="blog-v2/delete-posting/{string($posting/@postingdate)}">delete</a> | 
-                               <a href="blog-v2/change-posting/{string($posting/@postingdate)}">change</a></p>
+                               <a href="/restxq/blog-v2/delete-posting/{string($posting/@postingdate)}">delete</a> | 
+                               <a href="/restxq/blog-v2/change-posting/{string($posting/@postingdate)}">change</a></p>
                    return $r
           
   return
@@ -119,7 +119,7 @@ declare %output:method("xhtml")
       <div class="right"><img src="/basex.svg" width="96"/></div>
       <h2>{ $title }</h2>
 
-      <p><form method="post" action="blog-v2/new-posting">
+      <p><form method="post" action="/restxq/blog-v2/new-posting">
         <p>Add new posting:</p>
         <table>
           <tr>
@@ -136,9 +136,9 @@ declare %output:method("xhtml")
 
       { $postings }
 
-      <p>Have a look at the <a href="blog-v2/show-blog-xml">xml source</a> of the blog.</p><br />
+      <p>Have a look at the <a href="/restxq/blog-v2/show-blog-xml">xml source</a> of the blog.</p><br />
 
-      <p><a href="blog-v2/drop-database">Drop blog database</a></p>
+      <p><a href="/restxq/blog-v2/drop-database">Drop blog database</a></p>
     </body>
   </html>
 };
@@ -267,7 +267,7 @@ declare %restxq:path("blog-v2/change-posting/{$id}")
       <div class="right"><img src="/basex.svg" width="96"/></div>
       <h2>{ $title }</h2>
       
-      <form method="post" action="replace-posting/{$id}">
+      <form method="post" action="/restxq/blog-v2/change-posting/replace-posting/{$id}">
         <p>Change the following posting:</p>
         <table>
           <tr>
