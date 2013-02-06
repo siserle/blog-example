@@ -70,7 +70,7 @@ declare %output:method("xhtml")
       <div class="right"><img src="/basex.svg" width="96"/></div>
       <h2>{ $title }</h2>
 
-      <p>You have to <a href="blog-complete/create-database">create the blog database</a> first.</p>
+      <p>You have to <a href="/restxq/blog-complete/create-database">create the blog database</a> first.</p>
     </body>
   </html>
 };
@@ -109,10 +109,10 @@ declare %output:method("xhtml")
                                 fn:substring(string($posting/@postingdate), 12, 5) || " " || $author } posted: </small><br />
                                <b>{ $posting/postingtitle/text() }</b><br />
                                { $posting/postingtext/text() }<br />
-                               <a href="blog-complete/delete-posting/{string($posting/@postingdate)}">delete</a> | 
-                               <a href="blog-complete/change-posting/{string($posting/@postingdate)}">change</a> | 
-                               <a href="blog-complete/add-comment/{string($posting/@postingdate)}">add comment</a> | 
-                               <a href="blog-complete/show-comments/{string($posting/@postingdate)}">
+                               <a href="/restxq/blog-complete/delete-posting/{string($posting/@postingdate)}">delete</a> | 
+                               <a href="/restxq/blog-complete/change-posting/{string($posting/@postingdate)}">change</a> | 
+                               <a href="/restxq/blog-complete/add-comment/{string($posting/@postingdate)}">add comment</a> | 
+                               <a href="/restxq/blog-complete/show-comments/{string($posting/@postingdate)}">
                                {fn:count($db/blog/postings/posting/comments/comment)} comment(s)</a></p>
                    return $r
           
@@ -126,9 +126,9 @@ declare %output:method("xhtml")
       <div class="right"><img src="/basex.svg" width="96"/></div>
       <h2>{ $title }</h2>
 
-      <p><a href="blog-complete/change-settings">Add/Change my blog settings</a></p>
+      <p><a href="/restxq/blog-complete/change-settings">Add/Change my blog settings</a></p>
 
-      <p><form method="post" action="blog-complete/new-posting">
+      <p><form method="post" action="/restxq/blog-complete/new-posting">
         <p>Add new posting:</p>
         <table>
           <tr>
@@ -145,9 +145,9 @@ declare %output:method("xhtml")
 
       { $postings }
 
-      <p>Have a look at the <a href="blog-complete/show-blog-xml">xml source</a> of the blog.</p><br />
+      <p>Have a look at the <a href="/restxq/blog-complete/show-blog-xml">xml source</a> of the blog.</p><br />
 
-      <p><a href="blog-complete/drop-database">Drop blog database</a></p>
+      <p><a href="/restxq/blog-complete/drop-database">Drop blog database</a></p>
     </body>
   </html>
 };
@@ -309,7 +309,7 @@ declare %restxq:path("blog-complete/change-posting/{$id}")
       <div class="right"><img src="/basex.svg" width="96"/></div>
       <h2>{ $title }</h2>
       
-      <form method="post" action="replace-posting/{$id}">
+      <form method="post" action="/restxq/blog-complete/replace-posting/{$id}">
         <p>Change the following posting:</p>
         <table>
           <tr>
@@ -391,7 +391,7 @@ declare %restxq:path("blog-complete/change-settings")
       <div class="right"><img src="/basex.svg" width="96"/></div>
       <h2>{ $title }</h2>
       
-      <form method="post" action="save-settings">
+      <form method="post" action="/restxq/blog-complete/save-settings">
         <p>Add/change the following settings:</p>
         <table>
           <tr>
@@ -470,7 +470,7 @@ declare %restxq:path("blog-complete/add-comment/{$id}")
       <div class="right"><img src="/basex.svg" width="96"/></div>
       <h2>{ $title }</h2>
       
-      <form method="post" action="save-comment/{$id}">
+      <form method="post" action="/restxq/blog-complete/add-comment/save-comment/{$id}">
         <p>Add the following comment:</p>
         <table>
           <tr>
