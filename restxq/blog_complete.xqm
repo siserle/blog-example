@@ -309,7 +309,7 @@ declare %restxq:path("blog-complete/change-posting/{$id}")
       <div class="right"><img src="/basex.svg" width="96"/></div>
       <h2>{ $title }</h2>
       
-      <form method="post" action="/restxq/blog-complete/replace-posting/{$id}">
+      <form method="post" action="/restxq/blog-complete/change-posting/replace-posting/{$id}">
         <p>Change the following posting:</p>
         <table>
           <tr>
